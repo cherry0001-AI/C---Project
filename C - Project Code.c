@@ -5,14 +5,14 @@ void encryptDecrypt(char *input_file, char *output_file, char key) {
     FILE *fin, *fout;
     char ch;
     
-    // Open input file 
+    
     fin = fopen(input_file, "rb");
     if(fin == NULL) {
         printf("Error: Cannot open input file!\n");
         exit(1);
     }
     
-    // Open the file and write in binary
+    
     fout = fopen(output_file, "wb");
     if(fout == NULL) {
         printf("Error: Cannot create output file!\n");
@@ -20,16 +20,16 @@ void encryptDecrypt(char *input_file, char *output_file, char key) {
         exit(1);
     }
     
-    // Read each character, encrypt/decrypt with XOR 
+     
     while(1) {
-        ch = fgetc(fin);  // Reads every character
-        if(feof(fin)) break;  // Stop if end of file
+        ch = fgetc(fin);  
+        if(feof(fin)) break;  
         
         ch = ch ^ key;  
-        fputc(ch, fout);  // Write encrypted/decrypted character
+        fputc(ch, fout);  
     }
     
-    // Close the file
+    
     fclose(fin);
     fclose(fout);
     
@@ -54,9 +54,10 @@ int main() {
     printf("Enter encryption key (single character): ");
     scanf(" %c", &key);  
     
-    // Same function process for both encryption and decryption
+    
     encryptDecrypt(input_file, output_file, key);
     
     return 0;
 }
+
 
